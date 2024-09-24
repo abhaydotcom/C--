@@ -12,7 +12,7 @@ int main(){
     count++;
     org=str[i];
    }
-  
+
    int start=0,end=count-1;
    while(start<=end){
     swap(str[start],str[end]);
