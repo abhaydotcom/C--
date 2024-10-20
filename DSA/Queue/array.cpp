@@ -19,6 +19,7 @@ class queue{
     void inqueue(int n){
          if(rear==size){
             cout<<"Queue is full";
+            
          }else{
             arr[rear]=n;
             rear++;
@@ -26,17 +27,20 @@ class queue{
     }
     int dequeue(){
         if(front==rear){
-            return -1;
+            cout<<"Queue is empty";
 
-        }else{
+        }else{int ans=arr[front];
             arr[front]=-1;
             front++;
-            front =0;
-            rear=0; 
+            if(front==rear){
+                front=0;rear=0;
+
+            }
+            return ans;
         }
     }
     int display(){
-        if(front==rear){return -1;}
+        if(front==rear){return-1;}
         else{
             return arr[front];
         }
@@ -48,8 +52,8 @@ int main(){
     queue a;
     a.inqueue(10);
     a.inqueue(20);
-    a.inqueue(20);
-    a.inqueue(20);
-    a.dequeue();
+    a.inqueue(30);
+
     cout<<a.display();
+    
 }

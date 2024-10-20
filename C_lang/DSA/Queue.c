@@ -67,7 +67,6 @@ int main(){
  enqueue(&q,30);    
  enqueue(&q,40);    
  enqueue(&q,50);    
- enqueue(&q,60);    
  dequeue(&q); 
  dequeue(&q); 
  dequeue(&q); 
