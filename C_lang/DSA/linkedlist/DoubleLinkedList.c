@@ -7,50 +7,51 @@ struct node{
     struct node* prev;
 };
 
-void display(struct node* head){
-    struct node* p=head;
+struct node* create(int val){
+    struct node* new=(struct node*)malloc(sizeof(struct node));
+    new->data=val;
+    new->next=NULL;
+    new->prev=NULL;
+}
 
+void TraverseForward(struct node* n){
+    struct node* p=n;
+    while(p!=NULL){
+        printf("%d ",p->data);
+        p=p->next;
+    }
+}
+
+void TraverseBackward(struct node* n){
+    struct node* p=n;
     while(p->next!=NULL){
         p=p->next;
     }
-    printf("\n");
     while(p!=NULL){
         printf("%d ",p->data);
         p=p->prev;
     }
 }
-struct node* createNode(int data) {
-    struct node* newNode = (struct node*)malloc(sizeof(struct node));
-    newNode->data = data;
-    newNode->next = NULL;
-    newNode->prev = NULL;
-    return newNode;
-}
 
 int main(){
-// struct node* head=(struct node*)malloc(sizeof(struct node));
-// struct node* sec=(struct node*)malloc(sizeof(struct node));
-// struct node* third=(struct node*)malloc(sizeof(struct node));
 
-// head->prev=NULL;
-// head->data=10;
-// head->next=sec;
+struct node* head=create(10);
+struct node* second=create(20);
+struct node* third=create(30);
+struct node* fourth=create(40);
 
-// sec->prev=head;
-// sec->data=20;
-// sec->next=third;
-
-// third->prev=sec;
-// third->data=30;
-// third->next=NULL;
-struct node* head=createNode(10);
-
-struct node* second=createNode(20);
-struct node* third=createNode(30);
+head->prev=NULL;
 head->next=second;
+second->next=third;
 second->prev=head;
+third->prev=second;
+third->next=fourth;
+fourth->prev=third;
+fourth->next=NULL;
 
-display(head);
+TraverseForward(head);
+printf("\n");
+TraverseBackward(head);
 
     return 0;
 }

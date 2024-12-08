@@ -2,41 +2,61 @@
 using namespace std;
 
 class avay{
-    public:
-    string name;
-    int* id;
-    float salary;
 
-    avay(){
-        id=new int;
-    }
+private:
+string name;
+int age;
 
-   void as(string n,int i,float sal){
-    name=n;*id=i;salary=sal;
-   }
-   void show(){
-    cout<<name<<endl<<*id<<endl<<salary<<endl;
-   }
-   
-   avay(avay& ab){
-    name=ab.name;
-    id=new int;
-    *id=*(ab.id);
-    salary=ab.salary;
-   }
-   ~avay(){
-    cout<<"ID deleted"<<endl;
-    delete id;
-   }
+public:
+
+string getname(){
+    return name;
+}
+void setname(string n){
+    name=n;
+}
+
+int getage(){
+    return age;
+}
+void setage(int n){
+    age=n;
+}
+~avay(){
+    cout<<"Destructor is called Automatically\n";
+}
 
 };
 
-int main (){
+class abhay:public avay{
+    public:
+    char section;
+    int number;
+    abhay(){
+        cout<<"Abhay constructor called\n";
+    }
 
-avay a,b;
-a.as("abhay kumar singh",1204,1231.33);
-a.show();
-b=a;
-b.show();
 
+};
+
+class sem{
+    public:
+    void avy(){
+        cout<<"I am Abhay Kumar singh\n";
+    }
+
+    
+}s1;
+
+class cls:public sem{
+public:
+
+}c1;
+
+int main(){
+
+c1.avy();
+
+
+    return 0;
 }

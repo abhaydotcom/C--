@@ -24,7 +24,7 @@ void preorder(struct node* n){
     }
 }
 void postorder(struct node* n){
-    if(n!=NULL){
+    if(n!=NULL){        
         postorder(n->left);
         postorder(n->right);
         printf("%d ",n->data);
